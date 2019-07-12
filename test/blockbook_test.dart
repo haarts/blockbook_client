@@ -11,7 +11,7 @@ void main() {
   setUp(() async {
     server = MockWebServer();
     await server.start();
-    blockbook = Blockbook(server.url);
+    blockbook = Blockbook(server.url, "ws://${server.host}:${server.port}/ws");
   });
 
   tearDown(() {
@@ -130,5 +130,35 @@ void main() {
     test('sendTransaction', () {}, skip: 'todo');
   });
 
-  group("websocket calls", () {}, skip: 'todo');
+  group("websocket calls", () {
+    test('getInfo', () async {
+      server.enqueue(
+          body: File("test/files/ws_getInfo.json").readAsStringSync());
+
+      Stream s = blockbook.getInfo();
+      s.listen(expectAsync1((message) {
+        expect(message, isNotNull);
+      }));
+    });
+
+    test("getBlockHash", () async {}, skip: "todo");
+    test("getAccountInfo", () async {}, skip: "todo");
+    test("getAccountUtxo", () async {}, skip: "todo");
+    test("getTransaction", () async {}, skip: "todo");
+    test("getTransactionSpecific", () async {}, skip: "todo");
+    test("estimateFee", () async {}, skip: "todo");
+    test("sendTransaction", () async {}, skip: "todo");
+    test("subscribeNewBlock", () async {}, skip: "todo");
+
+    test("subscribeAddresses", () async {
+      server.enqueue(
+          body:
+              File("test/files/ws_subscribeAddresses.json").readAsStringSync());
+
+      Stream s = blockbook.subscribeAddresses(["some-address"]);
+      s.listen(expectAsync1((message) {
+        expect(message, isNotNull);
+      }));
+    });
+  });
 }

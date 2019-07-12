@@ -1,0 +1,11 @@
+{
+  "id": "0",
+  "data": {
+    "address": "some-address",
+    "tx": {
+      "txId": "some-id",
+      "value": 100
+    }
+  }
+}
+

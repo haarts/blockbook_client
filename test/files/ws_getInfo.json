@@ -1,0 +1,13 @@
+{
+  "id": "",
+  "data": {
+    "name": "Bitcoin",
+    "shortcut": "BTC",
+    "decimals": 8,
+    "version": "0.3.1",
+    "bestHeight": 585080,
+    "bestHash": "0000000000000000001762b43ad360905492508c544a07797577ec481533e523",
+    "block0Hash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+    "testnet": false
+  }
+}
