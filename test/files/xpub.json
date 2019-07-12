@@ -1,0 +1,109 @@
+{
+  "page": 1,
+  "totalPages": 1,
+  "itemsOnPage": 1000,
+  "address": "xpub6CUGRUonZSQ4TWtTMmzXdrXDtypWKiKrhko4egpiMZbpiaQL2jkwSB1icqYh2cfDfVxdx4df189oLKnC5fSwqPfgyP3hooxujYzAu3fDVmz",
+  "balance": "490868",
+  "totalReceived": "710868",
+  "totalSent": "220000",
+  "unconfirmedBalance": "0",
+  "unconfirmedTxs": 0,
+  "txs": 12,
+  "txids": [
+    "0c9a0219a8f3ef4a7d00483a755a9a18a674340c547bdf573481c1c613898746",
+    "e63f7eaf79c6fefe21fe0c8fa5d3cae5a00fc45bcfaf5088f894d673e388c62c",
+    "89ba68e39862a36a71065bc13f0896213e9ee0240a41800c252802e2edc1b817",
+    "b302f204738c02a3427d3867ed53a85cf6234157ba306ac05dc8d7d85d8b09f4",
+    "31cd8e45a007482c61c8721f7e6e799f2f40c89b3485a8f1991a0195e8a19b83",
+    "0b290c3d0f27ce20a91d3054ab2d6e43700b86b2d290bdb1a5686c453a1687b7",
+    "9922f59186cb133769bee41876bd8c0186dee21a005823d4e28ddaf6e324805c",
+    "d398308c6b1123d53f0c669146ad9772164dacdf4df4c79d26e657264f20250f",
+    "4fbbbdf97d77f27cf39572a21a996e938b88f76ac173a0806f60e94f23995016",
+    "d339e4ffd23586e9f75c44aa5c60cc8775980ccd09a431cc0b56dac863d7f6f2",
+    "6624d78e14ebae02be652c1b155cc8cd1cd9fd7b8531df16cdcfcbe36b8ab272",
+    "6faca777767c3130722c1ed3cea8537099ca3d4db475ad6be1c2f93fbce571c3"
+  ],
+  "usedTokens": 10,
+  "tokens": [
+    {
+      "type": "XPUBAddress",
+      "name": "1CcEugXu9Yf9Qw5cpB8gHUK4X9683WyghM",
+      "path": "m/44'/0'/0'/0/2",
+      "transfers": 1,
+      "decimals": 8,
+      "balance": "8747",
+      "totalReceived": "8747",
+      "totalSent": "0"
+    },
+    {
+      "type": "XPUBAddress",
+      "name": "15xANZb5vJv5RGL263NFuh8UGgHT7noXeZ",
+      "path": "m/44'/0'/0'/0/3",
+      "transfers": 1,
+      "decimals": 8,
+      "balance": "100000",
+      "totalReceived": "100000",
+      "totalSent": "0"
+    },
+    {
+      "type": "XPUBAddress",
+      "name": "1PJMBXKBYEBMRDmpAoBRbDff26gHJrawSp",
+      "path": "m/44'/0'/0'/0/4",
+      "transfers": 1,
+      "decimals": 8,
+      "balance": "100000",
+      "totalReceived": "100000",
+      "totalSent": "0"
+    },
+    {
+      "type": "XPUBAddress",
+      "name": "16ZBYSHkLkRFHAuZvyzosXYgU1UDJxRV1R",
+      "path": "m/44'/0'/0'/0/5",
+      "transfers": 1,
+      "decimals": 8,
+      "balance": "100000",
+      "totalReceived": "100000",
+      "totalSent": "0"
+    },
+    {
+      "type": "XPUBAddress",
+      "name": "1EHeVKfjjq6FJpix86G2yzFeRbZ6RNg2Zm",
+      "path": "m/44'/0'/0'/0/6",
+      "transfers": 1,
+      "decimals": 8,
+      "balance": "100000",
+      "totalReceived": "100000",
+      "totalSent": "0"
+    },
+    {
+      "type": "XPUBAddress",
+      "name": "1HqsYkwczwvkMXCobk5WPZmhj2S2TK613Z",
+      "path": "m/44'/0'/0'/0/8",
+      "transfers": 1,
+      "decimals": 8,
+      "balance": "40161",
+      "totalReceived": "40161",
+      "totalSent": "0"
+    },
+    {
+      "type": "XPUBAddress",
+      "name": "1687EJf5YEmeEtcscnuJPiV5b8HkM1o98q",
+      "path": "m/44'/0'/0'/0/9",
+      "transfers": 1,
+      "decimals": 8,
+      "balance": "40160",
+      "totalReceived": "40160",
+      "totalSent": "0"
+    },
+    {
+      "type": "XPUBAddress",
+      "name": "1MS6eGqD4iUGyJPbEsjqmoNaRhApgtmF8J",
+      "path": "m/44'/0'/0'/0/10",
+      "transfers": 1,
+      "decimals": 8,
+      "balance": "1800",
+      "totalReceived": "1800",
+      "totalSent": "0"
+    }
+  ]
+}
