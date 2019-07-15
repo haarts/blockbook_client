@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'dart:math';
 import 'dart:convert';
+
 import 'package:http/http.dart';
 import 'package:web_socket_channel/io.dart';
 
@@ -96,8 +98,11 @@ class Blockbook extends BaseClient {
   Stream subscribeAddresses(List<String> addresses) {
     var channel = IOWebSocketChannel.connect(_websocketUrl);
     var request = {
+      "id": Random().nextInt(1000).toString(),
       "method": "subscribeAddresses",
-      "addresses": addresses,
+      "params": {
+        "addresses": addresses,
+      },
     };
 
     channel.sink.add(json.encode(request));
