@@ -18,6 +18,16 @@ void main() {
     server.shutdown();
   });
 
+  test("exported URLs", () {
+    var restUrl = 'http://foo.bar';
+    var websocketUrl = 'ws://foo.bar';
+
+    var blockbook = Blockbook(restUrl, websocketUrl);
+
+    expect(blockbook.restUrl, Uri.parse(restUrl));
+    expect(blockbook.websocketUrl, Uri.parse(websocketUrl));
+  });
+
   group("http API calls", () {
     test('status', () async {
       server.enqueue(body: File("test/files/status.json").readAsStringSync());

@@ -1,3 +1,6 @@
+## 1.1.2
+- Export configured URLs
+ 
 ## 1.1.1
 - Fix websocket call
  
