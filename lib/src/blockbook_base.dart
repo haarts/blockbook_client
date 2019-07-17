@@ -95,7 +95,8 @@ class Blockbook extends BaseClient {
   }
 
   Stream subscribeAddresses(List<String> addresses) {
-    var channel = IOWebSocketChannel.connect(websocketUrl);
+    var channel = IOWebSocketChannel.connect(websocketUrl,
+        pingInterval: Duration(seconds: 10));
     var request = {
       "id": Random().nextInt(1000).toString(),
       "method": "subscribeAddresses",

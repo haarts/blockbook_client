@@ -1,3 +1,6 @@
+## 1.1.3
+- Add ping
+ 
 ## 1.1.2
 - Export configured URLs
  
