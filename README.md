@@ -1,6 +1,7 @@
 # Blockbook library
 
 [![pub package](https://img.shields.io/pub/v/bity.svg)](https://pub.dev/packages/blockbook)
+[![CircleCI](https://circleci.com/gh/inapay/blockbook_client.svg?style=svg)](https://circleci.com/gh/inapay/blockbook_client)
 
 A library for communicating with the [Blockbook API]. Some calls are missing.
 
