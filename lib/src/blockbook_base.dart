@@ -14,7 +14,8 @@ class Blockbook extends BaseClient {
   static const String _xpubPath = '/api/v2/xpub/';
   static const String _utxoPath = '/api/v2/utxo/';
   static const String _blockPath = '/api/v2/block/';
-  static const String _sendTransactionPath = '/api/v2/sendtx';
+  // TODO implement
+  // static const String _sendTransactionPath = '/api/v2/sendtx';
 
   static const String _userAgent = 'Blockbook - Dart';
   static const String _contentType = 'application/json';
