@@ -20,16 +20,16 @@ class Blockbook extends BaseClient {
   static const String _userAgent = 'Blockbook - Dart';
   static const String _contentType = 'application/json';
   static const Duration _pingInterval = Duration(seconds: 10);
-  static Random _idGenerator = Random();
+  static final Random _idGenerator = Random();
 
   final Uri restUrl;
   final Uri websocketUrl;
   final Client _client;
 
   Blockbook(String restUrl, String websocketUrl)
-      : this.restUrl = Uri.parse(restUrl),
-        this.websocketUrl = Uri.parse(websocketUrl),
-        this._client = Client();
+      : restUrl = Uri.parse(restUrl),
+        websocketUrl = Uri.parse(websocketUrl),
+        _client = Client();
 
   @override
   Future<StreamedResponse> send(BaseRequest request) {
@@ -46,46 +46,46 @@ class Blockbook extends BaseClient {
   }
 
   Future<String> blockHash(int height) async {
-    var response = await get(restUrl.replace(path: "$_blockHashPath$height"));
+    var response = await get(restUrl.replace(path: '$_blockHashPath$height'));
 
-    return json.decode(response.body)["blockHash"];
+    return json.decode(response.body)['blockHash'];
   }
 
   Future<Map<String, dynamic>> transaction(String txId) async {
-    var response = await get(restUrl.replace(path: "$_transactionPath$txId"));
+    var response = await get(restUrl.replace(path: '$_transactionPath$txId'));
 
     return json.decode(response.body);
   }
 
   Future<Map<String, dynamic>> transactionSpecific(String txId) async {
     var response =
-        await get(restUrl.replace(path: "$_transactionSpecificPath$txId"));
+        await get(restUrl.replace(path: '$_transactionSpecificPath$txId'));
 
     return json.decode(response.body);
   }
 
   // TODO add query parameters
   Future<Map<String, dynamic>> address(String address) async {
-    var response = await get(restUrl.replace(path: "$_addressPath$address"));
+    var response = await get(restUrl.replace(path: '$_addressPath$address'));
 
     return json.decode(response.body);
   }
 
   // TODO add query parameters
   Future<Map<String, dynamic>> xpub(String xpub) async {
-    var response = await get(restUrl.replace(path: "$_xpubPath$xpub"));
+    var response = await get(restUrl.replace(path: '$_xpubPath$xpub'));
 
     return json.decode(response.body);
   }
 
   Future<List<dynamic>> utxo(String addressOrXpub) async {
-    var response = await get(restUrl.replace(path: "$_utxoPath$addressOrXpub"));
+    var response = await get(restUrl.replace(path: '$_utxoPath$addressOrXpub'));
 
     return json.decode(response.body);
   }
 
   Future<Map<String, dynamic>> block(dynamic hashOrHeight) async {
-    var response = await get(restUrl.replace(path: "$_blockPath$hashOrHeight"));
+    var response = await get(restUrl.replace(path: '$_blockPath$hashOrHeight'));
 
     return json.decode(response.body);
   }
@@ -109,10 +109,10 @@ class Blockbook extends BaseClient {
       pingInterval: _pingInterval,
     );
     var request = {
-      "id": _idGenerator.nextInt(1000).toString(),
-      "method": "subscribeAddresses",
-      "params": {
-        "addresses": addresses,
+      'id': _idGenerator.nextInt(1000).toString(),
+      'method': 'subscribeAddresses',
+      'params': {
+        'addresses': addresses,
       },
     };
 
@@ -127,9 +127,9 @@ class Blockbook extends BaseClient {
       pingInterval: _pingInterval,
     );
     var request = {
-      "id": _idGenerator.nextInt(1000).toString(),
-      "method": "subscribeNewBlock",
-      "params": {},
+      'id': _idGenerator.nextInt(1000).toString(),
+      'method': 'subscribeNewBlock',
+      'params': {},
     };
 
     channel.sink.add(json.encode(request));
