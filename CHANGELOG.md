@@ -1,6 +1,8 @@
+## 1.1.4
+- Add subscribeNewBlock
+
 ## 1.1.3
 - Add ping
-- Add subscribeNewBlock
  
 ## 1.1.2
 - Export configured URLs
