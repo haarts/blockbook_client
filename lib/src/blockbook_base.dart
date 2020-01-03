@@ -31,6 +31,7 @@ class Blockbook extends BaseClient {
         this.websocketUrl = Uri.parse(websocketUrl),
         this._client = Client();
 
+  @override
   Future<StreamedResponse> send(BaseRequest request) {
     request.headers[HttpHeaders.userAgentHeader] = _userAgent;
     request.headers[HttpHeaders.contentTypeHeader] = _contentType;
