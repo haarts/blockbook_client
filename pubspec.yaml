@@ -1,5 +1,5 @@
 name: blockbook
-description: A starting point for Dart libraries or applications.
+description: An API client for a Blockbook server (https://github.com/trezor/blockbook/blob/master/docs/api.md).
 version: 1.1.4
 homepage: https://github.com/inapay/blockbook_client
 author: Harm Aarts <harm@aarts.email>
