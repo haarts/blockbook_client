@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:test/test.dart';
@@ -158,7 +159,24 @@ void main() {
     test("getTransactionSpecific", () async {}, skip: "todo");
     test("estimateFee", () async {}, skip: "todo");
     test("sendTransaction", () async {}, skip: "todo");
-    test("subscribeNewBlock", () async {}, skip: "todo");
+
+    test("subscribeNewBlock", () async {
+      var subscriptionSuccess = '{"id":"1","data":{"subscribed":true}}';
+      var newBlock =
+          '{"id":"1","data":{"height":611099,"hash":"00000000000000000010657f651f9a65814a3ba731ea997304ebcd6d9cf150eb"}}';
+      server.messageGenerator = (sink) {
+        sink.add(subscriptionSuccess);
+        sink.add(newBlock);
+      };
+
+      expect(
+        blockbook.subscribeNewBlock(),
+        emitsInOrder([
+          json.decode(subscriptionSuccess),
+          json.decode(newBlock),
+        ]),
+      );
+    });
 
     test("subscribeAddresses", () async {
       server.enqueue(

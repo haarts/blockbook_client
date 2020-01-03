@@ -19,6 +19,8 @@ class Blockbook extends BaseClient {
 
   static const String _userAgent = 'Blockbook - Dart';
   static const String _contentType = 'application/json';
+  static const Duration _pingInterval = Duration(seconds: 10);
+  static Random _idGenerator = Random();
 
   final Uri restUrl;
   final Uri websocketUrl;
@@ -88,21 +90,45 @@ class Blockbook extends BaseClient {
   }
 
   Stream getInfo() {
-    var channel = IOWebSocketChannel.connect(websocketUrl);
-    channel.sink.add('{"method": "getInfo"}');
+    var channel = IOWebSocketChannel.connect(
+      websocketUrl,
+      pingInterval: _pingInterval,
+    );
+    channel.sink.add(json.encode({
+      'id': _idGenerator.nextInt(1000).toString(),
+      'method': 'getInfo',
+    }));
 
     return channel.stream.map((message) => json.decode(message));
   }
 
   Stream subscribeAddresses(List<String> addresses) {
-    var channel = IOWebSocketChannel.connect(websocketUrl,
-        pingInterval: Duration(seconds: 10));
+    var channel = IOWebSocketChannel.connect(
+      websocketUrl,
+      pingInterval: _pingInterval,
+    );
     var request = {
-      "id": Random().nextInt(1000).toString(),
+      "id": _idGenerator.nextInt(1000).toString(),
       "method": "subscribeAddresses",
       "params": {
         "addresses": addresses,
       },
+    };
+
+    channel.sink.add(json.encode(request));
+
+    return channel.stream.map((message) => json.decode(message));
+  }
+
+  Stream subscribeNewBlock() {
+    var channel = IOWebSocketChannel.connect(
+      websocketUrl,
+      pingInterval: _pingInterval,
+    );
+    var request = {
+      "id": _idGenerator.nextInt(1000).toString(),
+      "method": "subscribeNewBlock",
+      "params": {},
     };
 
     channel.sink.add(json.encode(request));
