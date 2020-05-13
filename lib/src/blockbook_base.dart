@@ -1,11 +1,16 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:web_socket_channel/io.dart';
 
 class Blockbook extends BaseClient {
+  Blockbook(String restUrl, String websocketUrl)
+      : restUrl = Uri.parse(restUrl),
+        websocketUrl = Uri.parse(websocketUrl),
+        _client = Client();
+
   static const String _statusPath = '/api/';
   static const String _blockHashPath = '/api/v2/block-index/';
   static const String _transactionPath = '/api/v2/tx/';
@@ -25,11 +30,6 @@ class Blockbook extends BaseClient {
   final Uri restUrl;
   final Uri websocketUrl;
   final Client _client;
-
-  Blockbook(String restUrl, String websocketUrl)
-      : restUrl = Uri.parse(restUrl),
-        websocketUrl = Uri.parse(websocketUrl),
-        _client = Client();
 
   @override
   Future<StreamedResponse> send(BaseRequest request) {
@@ -84,7 +84,7 @@ class Blockbook extends BaseClient {
     return json.decode(response.body);
   }
 
-  Future<Map<String, dynamic>> block(dynamic hashOrHeight) async {
+  Future<Map<String, dynamic>> block(hashOrHeight) async {
     var response = await get(restUrl.replace(path: '$_blockPath$hashOrHeight'));
 
     return json.decode(response.body);

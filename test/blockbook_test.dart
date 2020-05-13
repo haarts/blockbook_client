@@ -164,8 +164,7 @@ void main() {
       var newBlock =
           '{"id":"1","data":{"height":611099,"hash":"00000000000000000010657f651f9a65814a3ba731ea997304ebcd6d9cf150eb"}}';
       server.messageGenerator = (sink) {
-        sink.add(subscriptionSuccess);
-        sink.add(newBlock);
+        sink..add(subscriptionSuccess)..add(newBlock);
       };
 
       expect(
